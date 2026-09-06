@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalesFlow CRM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+      <h1>SalesFlow <span>CRM</span></h1>
+      <p class="tagline">Simple customer relationship management</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Dashboard summary -->
+    <section class="summary" id="summary">
+      <div class="summary-card">
+        <span class="summary-number" id="totalCount">0</span>
+        <span class="summary-label">Total Customers</span>
+      </div>
+      <div class="summary-card lead">
+        <span class="summary-number" id="leadCount">0</span>
+        <span class="summary-label">Leads</span>
+      </div>
+      <div class="summary-card active">
+        <span class="summary-number" id="activeCount">0</span>
+        <span class="summary-label">Active</span>
+      </div>
+      <div class="summary-card inactive">
+        <span class="summary-number" id="inactiveCount">0</span>
+        <span class="summary-label">Inactive</span>
+      </div>
+    </section>
+
+    <!-- Add / Edit customer form -->
+    <section class="card form-card">
+      <h2 id="formTitle">Add New Customer</h2>
+      <form id="customerForm">
+        <input type="hidden" id="customerId">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company">
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status">
+              <option value="LEAD">Lead</option>
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Add Customer</button>
+          <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="display:none;">Cancel</button>
+        </div>
+      </form>
+      <p class="form-message" id="formMessage"></p>
+    </section>
+
+    <!-- Toolbar: search + filter -->
+    <section class="toolbar">
+      <input type="text" id="searchInput" placeholder="Search customers by name...">
+      <select id="statusFilter">
+        <option value="">All Statuses</option>
+        <option value="LEAD">Lead</option>
+        <option value="ACTIVE">Active</option>
+        <option value="INACTIVE">Inactive</option>
+      </select>
+      <button class="btn btn-secondary" id="refreshBtn">Refresh</button>
+    </section>
+
+    <!-- Customer table -->
+    <section class="card">
+      <div class="table-wrap">
+        <table id="customerTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="customerTableBody">
+            <!-- Rows injected by app.js -->
+          </tbody>
+        </table>
+        <p id="emptyState" class="empty-state" style="display:none;">No customers found.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --bg: #f4f5f9;
+  --card-bg: #ffffff;
+  --text: #1f2333;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --lead: #f59e0b;
+  --active: #10b981;
+  --inactive: #9ca3af;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header {
+  background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 24px 20px;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.header-content h1 span { font-weight: 300; opacity: 0.85; }
+
+.tagline {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* Dashboard summary */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border-top: 4px solid var(--primary);
+}
+
+.summary-card.lead { border-top-color: var(--lead); }
+.summary-card.active { border-top-color: var(--active); }
+.summary-card.inactive { border-top-color: var(--inactive); }
+
+.summary-number {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.summary-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+
+.card h2 { margin-top: 0; font-size: 18px; }
+
+/* Form */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.form-group { display: flex; flex-direction: column; }
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.form-group input,
+.form-group select {
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.form-message {
+  min-height: 18px;
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+
+.form-message.success { color: var(--active); }
+.form-message.error { color: var(--danger); }
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+
+.btn-secondary { background: #eef0f5; color: var(--text); }
+.btn-secondary:hover { background: #e2e4ec; }
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin-right: 6px;
+}
+
+.btn-edit { background: #e0e7ff; color: var(--primary-dark); }
+.btn-delete { background: #fee2e2; color: var(--danger); }
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.toolbar input,
+.toolbar select {
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.toolbar input { flex: 1; min-width: 200px; }
+
+/* Table */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+.status-LEAD { background: var(--lead); }
+.status-ACTIVE { background: var(--active); }
+.status-INACTIVE { background: var(--inactive); }
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .summary { grid-template-columns: repeat(2, 1fr); }
+  .form-grid { grid-template-columns: 1fr; }
+}

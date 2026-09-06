@@ -18,19 +18,6 @@ A simple full-stack Customer Relationship Management (CRM) application for manag
 - **Database:** MySQL 8
 - **Build Tool:** Maven
 
-## Project Structure
-
-```text
-salesflow-crm/
-├── backend/
-│   ├── src/
-│   └── pom.xml
-├── frontend/
-│   ├── index.html
-│   ├── app.js
-│   └── style.css
-└── README.md
-```
 
 ## Requirements
 
@@ -102,25 +89,6 @@ http://localhost:8080/api/customers
 | DELETE | `/api/customers/{id}` | Delete customer |
 | GET | `/api/customers/search?name={name}` | Search customers by name |
 
-## Customer Fields
-
-```text
-id
-name
-email
-phone
-company
-status
-createdAt
-```
-
-Supported statuses:
-
-```text
-LEAD
-ACTIVE
-INACTIVE
-```
 
 ## How It Works
 
